@@ -1,0 +1,28 @@
+from models import User
+users = [User(name='Peter Pan', email='peterpan@ga.com')]
+users.append(User(name='Mike Harder', email='mikey@prettyokay.dev'))
+users.append(User(name='John Doe', email='jdoe@gmail.com'))
+db.session.add_all(users)
+
+
+from models import Review
+db.session.add(Review(header='Great pasta at this place', 
+body='Being able to have my food delivered was really helpfull.',
+owner_id=User.query.filter_by(name="John Doe").one().id))
+db.session.add(Review(header='Great jucy Bugar', 
+body='Nothing is more frustrating than waiting in line for food, but drive through was fast.',
+owner_id=User.query.filter_by(name="Peter Pan").one().id))
+
+
+from models import Restaurant
+restaurants = [Restaurant(name='Red Robin', menu='Chicken Pasta', location='Kent, WA', phone="555 555 5555")]
+restaurants.append(Restaurant(name='Wafle House', menu='Chicken Wafle', location='Seattle, WA', phone="555 555 4444"))
+restaurants.append(Restaurant(name='Bugar King', menu='Cheese Bugar', location='Auburn, WA', phone="260 555 5555"))
+db.session.add_all(restaurants)
+
+
+
+export FLASK_ENV=development
+export FLASK_APP=
+export FLASK_DEBUG=1    
+flask run
