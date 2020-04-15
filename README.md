@@ -60,7 +60,7 @@ We have three config settings in here.
 For macs, the database connector, username, password, and port are all assumed. Note that not all operating systems function that way.
 
 ## To run the program in the terminal
-export FLASK_ENV=development
-export FLASK_APP=api.py
-export FLASK_DEBUG=1    
-flask run
+- export FLASK_ENV=development
+- export FLASK_APP=api.py
+- export FLASK_DEBUG=1    
+- flask run
